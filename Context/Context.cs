@@ -1,6 +1,6 @@
+using CongressusCore.Areas.Posts.Models.Post;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using CongressusCore.Models;
 namespace CongressusCore.Contexts
 {
     public class MyDbContext : DbContext

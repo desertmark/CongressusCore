@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CongressusCore.Areas.Posts.Repositories;
+using CongressusCore.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,6 +17,7 @@ namespace CongressusCore
 {
     public class Startup
     {
+        public IHostingEnvironment Env;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,6 +29,10 @@ namespace CongressusCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services
+            .AddDbContext<MyDbContext>()
+            .AddSingleton<IConfiguration>(Configuration)
+            .AddTransient<PostRepository,PostRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
