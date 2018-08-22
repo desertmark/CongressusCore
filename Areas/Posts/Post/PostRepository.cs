@@ -1,5 +1,5 @@
 using CongressusCore.Areas.Base;
-using CongressusCore.Areas.Posts.Models.Post;
+using CongressusCore.Areas.Posts.Models;
 using CongressusCore.Contexts;
 
 namespace CongressusCore.Areas.Posts.Repositories {

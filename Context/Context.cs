@@ -1,4 +1,5 @@
-using CongressusCore.Areas.Posts.Models.Post;
+using CongressusCore.Areas.Posts.Models;
+using CongressusCore.Areas.Users.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 namespace CongressusCore.Contexts
@@ -6,6 +7,7 @@ namespace CongressusCore.Contexts
     public class MyDbContext : DbContext
     {
         public DbSet<Post> Posts { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

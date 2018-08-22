@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using CongressusCore.Contexts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
-using CongressusCore.Areas.Posts.Models.Post;
+using CongressusCore.Areas.Posts.Models;
 using CongressusCore.Areas.Posts.Repositories;
 
 namespace CongressusCore.Areas.Posts.Controllers
@@ -28,6 +28,16 @@ namespace CongressusCore.Areas.Posts.Controllers
         public async Task<ActionResult<IEnumerable<Post>>> Get()
         {
             return (await PostRepository.List()).ToList();
+        }
+
+        public async Task<ActionResult> Post(Post model) {     
+            try {
+                await PostRepository.Create(model);
+                return Ok();
+            }
+            catch(Exception e) {
+                return StatusCode(500, e);
+            }
         }
     }
 }
