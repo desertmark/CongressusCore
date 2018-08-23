@@ -53,7 +53,7 @@ namespace CongressusCore.Areas.Auth {
             string password = context.Request.Form["password"];
 
             User user = null;
-            user = await Task.Run(() => _db.Users.SingleOrDefault(x => x.Username == username));
+            user = await Task.Run(() => _db.Users.SingleOrDefault(x => x.UserName == username));
 
             var result = _userManager.CheckPasswordAsync(user, password);
             if (result.Result == false)

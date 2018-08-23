@@ -46,7 +46,7 @@ namespace CongressusCore
             .AddTransient<PostRepository,PostRepository>();
 
             services
-            .AddIdentity<User,IdentityRole>()
+            .AddIdentity<User,Role>()
             .AddEntityFrameworkStores<MyDbContext>()
             .AddDefaultTokenProviders();
 
